@@ -20,5 +20,28 @@ namespace EuroConverter
         {
             InitializeComponent();
         }
+
+        private void delete(object sender, RoutedEventArgs e)
+        {
+            
+            euro.Text = string.Empty;
+            frank.Text = string.Empty;
+        }
+
+        private void convert(object sender, RoutedEventArgs e)
+        {
+            euro.Foreground = Brushes.Black;
+
+
+            if (double.TryParse(euro.Text, out double euroAmount))
+            {
+                double frankAmount = euroAmount * 40.3399;
+                frank.Text = frankAmount.ToString("N2");
+            }
+            else
+            {
+                euro.Foreground = Brushes.Red;
+            }
+        }
     }
 }
